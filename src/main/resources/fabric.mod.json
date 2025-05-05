@@ -9,8 +9,8 @@
 	],
 		"contact": {
   		"homepage": "",
-  		"issues": "https://github.com/Casebycaseworks/creepermilk/issues",
-  		"sources": "https://github.com/Casebycaseworks/creepermilk"
+  		"issues": "https://github.com/Casebycaseworks/creepermilkmod/issues",
+  		"sources": "https://github.com/Casebycaseworks/creepermilkmod"
 	},
 	"license": "MIT",
 	"icon": "assets/creepermilk/icon.png",
