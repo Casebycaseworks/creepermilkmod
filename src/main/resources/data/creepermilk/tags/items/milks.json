@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:milk_bucket",
+    "creepermilk:creeper_milk_bucket"
+  ]
+} 

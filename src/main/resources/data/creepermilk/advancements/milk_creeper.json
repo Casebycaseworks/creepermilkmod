@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "creepermilk:creeper_milk_bucket"
+    },
+    "title": {
+      "translate": "advancements.creepermilk.milk_creeper.title"
+    },
+    "description": {
+      "translate": "advancements.creepermilk.milk_creeper.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "creepermilk:root",
+  "criteria": {
+    "milked_creeper": {
+      "trigger": "creepermilk:milk_creeper"
+    }
+  },
+  "requirements": [
+    [
+      "milked_creeper"
+    ]
+  ]
+} 
