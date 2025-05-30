@@ -12,4 +12,4 @@ object Creepermilk : ModInitializer {
         // Proceed with mild caution.
         logger.info("Initializing Creeper Milk!")
     }
-}
+} 
