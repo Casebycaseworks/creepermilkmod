@@ -18,7 +18,7 @@ public class CreepermilkItems implements ModInitializer {
         ModRecipes.registerRecipes();
         ModCriteria.registerCriteria();
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.add(ModRegistry.CREEPER_MILK_BUCKET));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.add(ModRegistry.CREEPER_MILK_BUCKET));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.addAfter(Items.MILK_BUCKET, ModRegistry.CREEPER_MILK_BUCKET));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.MILK_BUCKET, ModRegistry.CREEPER_MILK_BUCKET));
     }
 } 
