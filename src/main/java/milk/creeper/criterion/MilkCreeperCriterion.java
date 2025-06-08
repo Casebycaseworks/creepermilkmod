@@ -12,7 +12,7 @@ import net.minecraft.predicate.entity.LootContextPredicate;
 import java.util.Optional;
 
 public class MilkCreeperCriterion extends AbstractCriterion<MilkCreeperCriterion.Conditions> {
-    public static final Identifier ID = new Identifier(ModRegistry.MOD_ID, "milk_creeper");
+    public static final Identifier ID = Identifier.of(ModRegistry.MOD_ID, "milk_creeper");
 
     @Override
     public Codec<Conditions> getConditionsCodec() {

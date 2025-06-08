@@ -1,12 +1,14 @@
 {
   "type": "creepermilk:crafting_shapeless_consume_bucket",
+  "category": "misc",
   "ingredients": [
     {
       "item": "creepermilk:creeper_milk_bucket"
     }
   ],
   "result": {
-    "item": "minecraft:milk_bucket"
+    "id": "minecraft:milk_bucket",
+    "count": 1
   },
   "group": "milk_conversion"
 } 

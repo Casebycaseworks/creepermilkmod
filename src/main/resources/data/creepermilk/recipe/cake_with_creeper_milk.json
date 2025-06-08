@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
     "MMM",
     "SES",
@@ -12,6 +13,7 @@
     "W": { "item": "minecraft:wheat" }
   },
   "result": {
-    "item": "minecraft:cake"
+    "id": "minecraft:cake",
+    "count": 1
   }
 } 
