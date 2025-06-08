@@ -7,11 +7,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.item.Items;
+import net.minecraft.item.consume.UseAction;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 public class CreepermilkBucketItem extends Item {
@@ -21,34 +21,25 @@ public class CreepermilkBucketItem extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
+
+        if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
+            stack.decrement(1);
+        }
+
         if (!world.isClient) {
             user.clearStatusEffects();
         }
 
-        // Store the original stack for creative mode check
-        ItemStack originalStack = stack.copy(); 
-
-        // Only decrement if not in creative mode
-        PlayerEntity playerEntity = user instanceof PlayerEntity ? (PlayerEntity) user : null;
-        if (playerEntity == null || !playerEntity.getAbilities().creativeMode) {
-            stack.decrement(1);
-        }
-
-        // If the original stack was creeper milk and is now empty (meaning it was consumed by a non-creative player)
-        // return a bucket. Otherwise (creative mode), return the original stack.
-        if (stack.isEmpty() && (playerEntity == null || !playerEntity.getAbilities().creativeMode)) {
-             return new ItemStack(Items.BUCKET);
-        }
-        
-        return stack; // Return the stack (which might be unchanged for creative or empty if something else modified it)
+        return stack.isEmpty() ? new ItemStack(Items.BUCKET) : stack;
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 32;
     }
 
@@ -58,7 +49,7 @@ public class CreepermilkBucketItem extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 } 

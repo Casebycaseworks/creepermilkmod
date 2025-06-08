@@ -50,7 +50,7 @@ public abstract class CreeperEntityMixin {
                 }
             }
             player.swingHand(hand);
-            cir.setReturnValue(ActionResult.success(player.getWorld().isClient));
+            cir.setReturnValue(ActionResult.SUCCESS);
             // System.out.println("[Creepermilk] Interaction successful!");
         }
     }
