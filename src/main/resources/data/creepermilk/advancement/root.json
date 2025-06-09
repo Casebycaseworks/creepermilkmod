@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.creepermilk.root.description"
     },
-    "background": "creepermilk:textures/gui/advancements/backgrounds/creeper_milk.png",
+    "background": "creepermilk:gui/advancements/backgrounds/creeper",
     "frame": "task",
     "show_toast": false,
     "announce_to_chat": false,
