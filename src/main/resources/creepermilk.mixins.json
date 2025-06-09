@@ -3,7 +3,8 @@
 	"package": "milk.creeper.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"CreeperEntityMixin"
+		"CreeperEntityMixin",
+		"ShapelessRecipeAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

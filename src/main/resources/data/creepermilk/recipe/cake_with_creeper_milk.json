@@ -1,16 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "pattern": [
-    "MMM",
-    "SES",
-    "WWW"
+    "AAA",
+    "BEB",
+    "CCC"
   ],
   "key": {
-    "M": { "tag": "creepermilk:milks" },
-    "S": { "item": "minecraft:sugar" },
-    "E": { "item": "minecraft:egg" },
-    "W": { "item": "minecraft:wheat" }
+    "A": "#c:milk",
+    "B": "minecraft:sugar",
+    "C": "minecraft:wheat",
+    "E": "minecraft:egg"
   },
   "result": {
     "id": "minecraft:cake",
