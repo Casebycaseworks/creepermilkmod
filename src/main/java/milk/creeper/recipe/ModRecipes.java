@@ -1,31 +1,19 @@
 package milk.creeper.recipe;
 
-import milk.creeper.ModRegistry;
 import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModRecipes {
-    public static RecipeSerializer<ShapelessRecipe> CONSUME_BUCKET_SHAPELESS_SERIALIZER;
-    public static RecipeType<ConsumeBucketShapelessRecipe> CONSUME_BUCKET_RECIPE_TYPE;
-
+    
+    public static final RecipeSerializer<ShapelessRecipe> CREEPER_MILK_TO_MILK_SERIALIZER = 
+        CreeperMilkToMilkRecipeSerializer.INSTANCE;
+    
     public static void registerRecipes() {
-        CONSUME_BUCKET_SHAPELESS_SERIALIZER = Registry.register(
-                Registries.RECIPE_SERIALIZER, Identifier.of(ModRegistry.MOD_ID, "crafting_shapeless_consume_bucket"),
-                new ConsumeBucketShapelessRecipeSerializer()
-        );
-
-        CONSUME_BUCKET_RECIPE_TYPE = Registry.register(
-                Registries.RECIPE_TYPE, Identifier.of(ModRegistry.MOD_ID, "crafting_shapeless_consume_bucket"),
-                new RecipeType<ConsumeBucketShapelessRecipe>() { // Anonymous class implementing RecipeType
-                    @Override
-                    public String toString() {
-                        return ModRegistry.MOD_ID + ":crafting_shapeless_consume_bucket";
-                    }
-                }
-        );
+        Registry.register(Registries.RECIPE_SERIALIZER, 
+            Identifier.of("creepermilk", "creeper_milk_to_milk"), 
+            CREEPER_MILK_TO_MILK_SERIALIZER);
     }
 } 
