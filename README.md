@@ -7,7 +7,7 @@ A Minecraft mod that lets you milk creepers! Ever wondered what would happen if 
 - Right-click a creeper with an empty bucket to obtain Creeper Milk
 - Creeper Milk is a unique green-tinted variant of milk
 - Works just like regular milk for removing status effects
-- Convert Creeper Milk to regular Milk using crafting (no bucket remainder!)
+- Convert Creeper Milk to regular Milk using crafting
 - Some compatibility with other mods
 - No configuration needed - just install and play!
 
