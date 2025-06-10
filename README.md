@@ -13,14 +13,14 @@ A Minecraft mod that lets you milk creepers! Ever wondered what would happen if 
 
 ## Requirements
 
-- Minecraft 1.21.5
-- Fabric Loader ≥ 0.16.14
+- Minecraft 1.21.4
+- Fabric Loader ≥ 0.16.9
 - Fabric API
 - Fabric Language Kotlin
 
 ## Installation
 
-1. Install Fabric Loader and Fabric API for Minecraft 1.21.5
+1. Install Fabric Loader and Fabric API for Minecraft 1.21.4
 2. Download the latest version of Creeper Milk from Modrinth
 3. Place the mod file in your `mods` folder
 4. Launch Minecraft and enjoy!
