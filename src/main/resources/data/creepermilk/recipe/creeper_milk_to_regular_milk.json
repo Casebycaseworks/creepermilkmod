@@ -1,7 +1,10 @@
 {
   "type": "creepermilk:creeper_milk_to_milk",
+  "category": "misc",
   "ingredients": [
-    "creepermilk:creeper_milk_bucket"
+    {
+      "item": "creepermilk:creeper_milk_bucket"
+    }
   ],
   "result": {
     "id": "minecraft:milk_bucket",

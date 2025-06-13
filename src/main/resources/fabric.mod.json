@@ -33,9 +33,9 @@
 		"creepermilk.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.9",
+		"fabricloader": ">=0.16.14",
 		"fabric": "*",
-		"minecraft": "~1.21.2",
+		"minecraft": "~1.21.1",
 		"java": ">=21"
 	},
 	"suggests": {

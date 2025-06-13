@@ -1,5 +1,6 @@
 package milk.creeper.mixin;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -17,10 +18,14 @@ import milk.creeper.ModRegistry;
 import milk.creeper.criterion.ModCriteria;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-@Mixin(CreeperEntity.class)
+@Mixin(Entity.class)
 public abstract class CreeperEntityMixin {
-    @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     private void creepermilk$onInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+        // Only apply to CreeperEntity instances
+        if (!((Object) this instanceof CreeperEntity)) {
+            return;
+        }
         // System.out.println("[Creepermilk] Mixin loaded and active"); // Optional: Keep if needed for very basic load check
         ItemStack stack = player.getStackInHand(hand);
         // System.out.println("[Creepermilk] Player is holding: " + stack.getItem());
