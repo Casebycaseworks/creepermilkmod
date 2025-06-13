@@ -1,15 +1,12 @@
 package milk.creeper;
 
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.item.consume.UseAction;
+
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import milk.creeper.item.CreepermilkBucketItem;
 
@@ -27,7 +24,7 @@ public class ModRegistry {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, name));
 
         // Create the item instance.
-        Item item = itemFactory.apply(settings.registryKey(itemKey));
+        Item item = itemFactory.apply(settings);
 
         // Register the item.
         Registry.register(Registries.ITEM, itemKey, item);
@@ -39,12 +36,6 @@ public class ModRegistry {
         CREEPER_MILK_BUCKET = register("creeper_milk_bucket", CreepermilkBucketItem::new, 
                 new Item.Settings()
                     .maxCount(1)
-                    .recipeRemainder(Items.BUCKET)
-                    .component(DataComponentTypes.CONSUMABLE, ConsumableComponent.builder()
-                        .consumeSeconds(1.6f)
-                        .useAction(UseAction.DRINK)
-                        .sound(SoundEvents.ENTITY_GENERIC_DRINK)
-                        .consumeParticles(false)
-                        .build()));
+                    .recipeRemainder(Items.BUCKET));
     }
 } 

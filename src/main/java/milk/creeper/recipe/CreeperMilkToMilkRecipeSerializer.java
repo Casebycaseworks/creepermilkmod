@@ -1,48 +1,48 @@
 package milk.creeper.recipe;
 
 import com.mojang.serialization.MapCodec;
-import milk.creeper.mixin.ShapelessRecipeAccessor;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.recipe.RecipeSerializer;
 
-public class CreeperMilkToMilkRecipeSerializer extends ShapelessRecipe.Serializer {
+public class CreeperMilkToMilkRecipeSerializer implements RecipeSerializer<CreeperMilkToMilkRecipe> {
     
-    public static final CreeperMilkToMilkRecipeSerializer INSTANCE = new CreeperMilkToMilkRecipeSerializer();
-
+    private static final ShapelessRecipe.Serializer SHAPELESS_SERIALIZER = new ShapelessRecipe.Serializer();
+    
     @Override
-    public MapCodec<ShapelessRecipe> codec() {
-        return super.codec().xmap(
-            shapelessRecipe -> {
-                // Convert ShapelessRecipe to CreeperMilkToMilkRecipe
-                ShapelessRecipeAccessor accessor = (ShapelessRecipeAccessor) shapelessRecipe;
-                return new CreeperMilkToMilkRecipe(
-                    accessor.getGroupAccessor(), 
-                    accessor.getCategoryAccessor(), 
-                    accessor.getResultAccessor(), 
-                    accessor.getIngredientsAccessor()
-                );
-            },
-            // Identity function - just return the input
-            recipe -> recipe
+    public MapCodec<CreeperMilkToMilkRecipe> codec() {
+        return SHAPELESS_SERIALIZER.codec().xmap(
+            shapelessRecipe -> new CreeperMilkToMilkRecipe(
+                shapelessRecipe.getGroup(),
+                shapelessRecipe.getCategory(),
+                shapelessRecipe.getResult(null),
+                shapelessRecipe.getIngredients()
+            ),
+            creeperMilkRecipe -> new ShapelessRecipe(
+                creeperMilkRecipe.getGroup(),
+                creeperMilkRecipe.getCategory(),
+                creeperMilkRecipe.getResult(null),
+                creeperMilkRecipe.getIngredients()
+            )
         );
     }
-
+    
     @Override
-    public PacketCodec<RegistryByteBuf, ShapelessRecipe> packetCodec() {
-        return super.packetCodec().xmap(
-            shapelessRecipe -> {
-                // Convert ShapelessRecipe to CreeperMilkToMilkRecipe
-                ShapelessRecipeAccessor accessor = (ShapelessRecipeAccessor) shapelessRecipe;
-                return new CreeperMilkToMilkRecipe(
-                    accessor.getGroupAccessor(), 
-                    accessor.getCategoryAccessor(), 
-                    accessor.getResultAccessor(), 
-                    accessor.getIngredientsAccessor()
-                );
-            },
-            // Identity function - just return the input
-            recipe -> recipe
+    public PacketCodec<RegistryByteBuf, CreeperMilkToMilkRecipe> packetCodec() {
+        return SHAPELESS_SERIALIZER.packetCodec().xmap(
+            shapelessRecipe -> new CreeperMilkToMilkRecipe(
+                shapelessRecipe.getGroup(),
+                shapelessRecipe.getCategory(),
+                shapelessRecipe.getResult(null),
+                shapelessRecipe.getIngredients()
+            ),
+            creeperMilkRecipe -> new ShapelessRecipe(
+                creeperMilkRecipe.getGroup(),
+                creeperMilkRecipe.getCategory(),
+                creeperMilkRecipe.getResult(null),
+                creeperMilkRecipe.getIngredients()
+            )
         );
     }
 } 
