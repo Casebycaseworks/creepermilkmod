@@ -1,6 +1,5 @@
 package milk.creeper;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -17,6 +16,6 @@ public class ModRegistry {
 
     public static void registerItems() {
         CREEPER_MILK_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "creeper_milk_bucket"),
-                new CreepermilkBucketItem(new FabricItemSettings().maxCount(1).recipeRemainder(Items.BUCKET)));
+                new CreepermilkBucketItem(new Item.Settings().maxCount(1).recipeRemainder(Items.BUCKET)));
     }
 } 
