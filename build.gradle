@@ -1,8 +1,20 @@
-plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
-	id 'maven-publish'
-	id "org.jetbrains.kotlin.jvm" version "2.1.20"
+buildscript {
+	repositories {
+		maven {
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
+		}
+		gradlePluginPortal()
+	}
+	dependencies {
+		classpath "net.fabricmc:fabric-loom:${loom_version}"
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21"
+	}
 }
+
+apply plugin: 'fabric-loom'
+apply plugin: 'maven-publish'
+apply plugin: 'org.jetbrains.kotlin.jvm'
 
 version = project.mod_version
 group = project.maven_group
@@ -37,8 +49,9 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
+	// Fabric API - using a stable version for 1.20.2
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 }
 

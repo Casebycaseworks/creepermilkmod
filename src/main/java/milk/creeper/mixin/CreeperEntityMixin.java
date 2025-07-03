@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import milk.creeper.CreepermilkItems;
-import milk.creeper.ModRegistry;
 import milk.creeper.criterion.ModCriteria;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -29,7 +28,7 @@ public abstract class CreeperEntityMixin {
             // System.out.println("[Creepermilk] Player is holding a bucket!");
             if (!player.getWorld().isClient) {
                 // System.out.println("[Creepermilk] Server-side interaction detected");
-                ItemStack milk = new ItemStack(ModRegistry.CREEPER_MILK_BUCKET);
+                ItemStack milk = new ItemStack(CreepermilkItems.CREEPER_MILK_BUCKET);
                 // System.out.println("[Creepermilk] Created milk item stack: " + milk);
                 
                 if (!player.getAbilities().creativeMode) {

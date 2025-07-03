@@ -1,5 +1,6 @@
 package milk.creeper
 
+import milk.creeper.criterion.ModCriteria
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
 
@@ -11,5 +12,8 @@ object Creepermilk : ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
         logger.info("Initializing Creeper Milk!")
+        
+        // Register custom criteria
+        ModCriteria.registerCriteria()
     }
 } 
