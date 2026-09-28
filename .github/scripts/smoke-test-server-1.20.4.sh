@@ -9,6 +9,9 @@ run_dir="$(mktemp -d "${TMPDIR:-/tmp}/creepermilk-1.20.4-smoke.XXXXXX")"
 server_pid=""
 input_open=false
 
+case "$artifact" in /*) ;; *) artifact="$project_dir/$artifact" ;; esac
+case "$evidence_log" in /*) ;; *) evidence_log="$project_dir/$evidence_log" ;; esac
+
 cleanup() {
     status=$?
     set +e
