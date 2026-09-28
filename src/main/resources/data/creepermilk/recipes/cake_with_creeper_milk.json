@@ -12,7 +12,6 @@
     "W": { "item": "minecraft:wheat" }
   },
   "result": {
-    "item": "minecraft:cake",
-    "count": 1
+    "item": "minecraft:cake"
   }
 } 

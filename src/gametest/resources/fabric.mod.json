@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "creepermilk-gametest",
+  "version": "1.0.0",
+  "name": "Creeper Milk Game Tests",
+  "environment": "server",
+  "entrypoints": { "fabric-gametest": ["milk.creeper.CreepermilkGameTests"] },
+  "depends": { "fabricloader": "*", "fabric-api": "*", "minecraft": "*", "creepermilk": "*" }
+}

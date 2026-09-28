@@ -9,24 +9,20 @@
     "description": {
       "translate": "advancements.creepermilk.milk_creeper.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
   "parent": "creepermilk:root",
   "criteria": {
-    "milk_creeper": {
-      "trigger": "creepermilk:milk_creeper",
-      "conditions": {}
+    "milked_creeper": {
+      "trigger": "creepermilk:milk_creeper"
     }
   },
   "requirements": [
     [
-      "milk_creeper"
+      "milked_creeper"
     ]
-  ],
-  "rewards": {
-    "experience": 50
-  }
+  ]
 } 
